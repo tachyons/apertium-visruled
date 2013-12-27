@@ -1,0 +1,21 @@
+Version 0.0.2+svn
+  * compile the transfer and related files from within the application
+  * run the Apertium toolchain from within the application
+  * simplified action editor
+  * simplified interface for editing categories and attributes
+
+Version 0.0.2
+  * fix an issue where deleted stuff on the diagram wasn't actually removed from the file
+  * fix a problem with properties not showing after being added
+  * focus system for boxes
+  * sidebar that displays the possible children/props for the selected box
+  * drag and drop things from the sidebar to the canvas
+  * drag and drop reordering of the diagram
+  * install instructions
+
+Version 0.0.1
+  * display t?x files as diagrams
+  * simple diagram manipulation through the context menu
+  * undo/redo support
+  * file operations (save, load etc)
+

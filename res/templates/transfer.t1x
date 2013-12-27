@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<transfer>
+	<section-def-cats />
+	<section-def-attrs />
+        <section-def-vars>
+            <def-var name="number" />
+        </section-def-vars>
+	<section-rules />
+</transfer>

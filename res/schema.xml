@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema>
+    <!-- Categories -->
+    <node name="section-def-cats" rep="tab" label="Categories">
+        <child name="def-cat" con="nested" />
+    </node>
+    <node name="def-cat" rep="box" color="#b40404" label="Category">
+        <prop name="n" label="Name:" mand="true" />
+        <child name="cat-item" con="nested" />
+    </node>
+    <node name="cat-item" rep="box" color="#64fe2e" label="Tags:" type="symbol-container-direct" prop-name="tags" nesting="horizontal">
+        <child name="__symbol_*" con="nested" />
+    </node>
+    <node name="__symbol_*" rep="box" color="#2424b4" label="anything" />
+
+    <!-- Attributes -->
+    <node name="section-def-attrs" rep="tab" label="Attributes">
+        <child name="def-attr" con="nested" />
+    </node>
+    <node name="def-attr" label="Attribute" rep="box" color="#ff8000" type="symbol-container-indirect" proxy="attr-item" prop-name="tags">
+        <prop name="n" label="Name:" mand="true" />
+    </node>
+
+    <!-- Variables -->
+    <node name="section-def-vars" rep="tab" label="Variables">
+        <child name="def-var" con="nested" />
+    </node>
+    <node name="def-var" rep="box" color="#01dfd5" label="Variable">
+        <prop name="n" label="Name:" mand="true" />
+    </node>
+
+    <!-- Macros -->
+    <node name="section-def-macros" rep="tab" label="Macros">
+        <child name="def-macro" con="nested" />
+    </node>
+    <node name="def-macro" rep="box" color="#cc77cc" label="Macro">
+        <prop name="name" label="Name:" />
+        <prop name="case" label="Case:" />
+    </node>
+
+
+    <!-- Rules -->
+    <node name="section-rules" label="Rules" rep="tab">
+        <child name="rule" con="nested" />
+    </node>
+    <node name="rule" label="Rule" rep="box" color="#fedd22">
+        <prop name="comment" label="Comment:" />
+        <child name="pattern" con="nested" />
+        <child name="action" con="arrow" />
+        <child name="choose" con="arrow" />
+    </node>
+    <node name="pattern" label="Pattern" rep="box" color="#2424b4">
+        <child name="pattern-item" con="nested" />
+    </node>
+    <node name="pattern-item" rep="box" color="#b40404" label="Item">
+        <prop name="n" label="Word category:" mand="true" />
+    </node>
+    <node name="action" rep="box" color="#ff8000" label="Action" type="action">
+        <child name="__action_swap" con="nested" />
+        <child name="__action_agree" con="nested" />
+        <child name="__action_remove" con="nested" />
+        <child name="__action_attrs" con="nested" />
+        <child name="__action_insert_word" con="nested" />
+        <child name="__action_insert_tag" con="nested" />
+        <child name="__action_assign_var" con="nested" />
+    </node>
+    <node name="choose" rep="box" color="#ff8000" label="Choose" type="choose">
+        <child name="when" con="nested" />
+        <child name="otherwise" con="nested" />
+    </node>
+    <node name="when" rep="box" color="#64fe2e" label="When" type="when">
+        <child name="action" con="arrow" />
+        <child name="equal" con="nested" />
+        <child name="begins-with" con="nested" />
+        <child name="ends-with" con="nested" />
+    </node>
+    <node name="equal" rep="box" color="#2424b4" label="Equals" type="condition">
+        <prop name="pos1" label="Position 1:" type="integer" mand="true" />
+        <prop name="part1" label="Part 1:" mand="true" />
+        <prop name="pos2" label="Position 2:" type="integer" />
+        <prop name="part2" label="Part 2:" />
+        <prop name="lit" label="Literal:" />
+        <prop name="lit-tag" label="Literal tag:" />
+    </node>
+    <node name="begins-with" rep="box" color="#2424b4" label="Begins with" type="condition">
+        <prop name="pos1" label="Position 1:" type="integer" mand="true" />
+        <prop name="part1" label="Part 1:" mand="true" />
+        <prop name="pos2" label="Position 2:" type="integer" />
+        <prop name="part2" label="Part 2:" />
+        <prop name="lit" label="Literal:" />
+        <prop name="lit-tag" label="Literal tag:" />
+    </node>
+    <node name="ends-with" rep="box" color="#2424b4" label="Ends with" type="condition">
+        <prop name="pos1" label="Position 1:" type="integer" mand="true" />
+        <prop name="part1" label="Part 1:" mand="true" />
+        <prop name="pos2" label="Position 2:" type="integer" />
+        <prop name="part2" label="Part 2:" />
+        <prop name="lit" label="Literal:" />
+        <prop name="lit-tag" label="Literal tag:" />
+    </node>
+    <node name="otherwise" rep="box" color="#64fe2e" label="Otherwise" type="when">
+        <child name="action" con="arrow" />
+    </node>
+    <node name="__action_swap" rep="box" color="#fedd22" label="Swap words">
+        <prop name="pos1" label="Word 1:" mand="true" type="integer"/>
+        <prop name="pos2" label="Word 2:" mand="true" type="integer"/>
+    </node>
+    <node name="__action_agree" rep="box" color="#fedd22" label="Agree attribute">
+        <prop name="src" label="Source word:" mand="true" type="integer"/>
+        <prop name="trg" label="Target word:" mand="true" type="integer"/>
+        <prop name="attr" label="Attribute:" mand="true" />
+    </node>
+    <node name="__action_remove" rep="box" color="#fedd22" label="Remove word">
+        <prop name="pos" label="Position:" mand="true" type="integer"/>
+    </node>
+    <node name="__action_attrs" rep="box" color="#fedd22" label="Reorder attributes">
+        <prop name="pos" label="Position:" mand="true" type="integer"/>
+        <prop name="order" label="New order:" mand="true" />
+    </node>
+    <node name="__action_insert_word" rep="box" color="#fedd22" label="Insert word">
+        <prop name="pos" label="Position:" mand="true" type="integer"/>
+        <prop name="lem" label="Literal:" mand="true" />
+        <prop name="var" label="From variable:" />
+    </node>
+    <node name="__action_insert_tag" rep="box" color="#fedd22" label="Insert tag">
+        <prop name="pos" label="Position:" mand="true" type="integer"/>
+        <prop name="tag" label="Literal:" mand="true" />
+        <prop name="var" label="From variable:" />
+    </node>
+    <node name="__action_assign_var" rep="box" color="#fedd22" label="Assign variable">
+        <prop name="name" label="Name:" mand="true" />
+        <prop name="pos" label="Position:" type="integer"/>
+        <prop name="part" label="Part:">
+        <prop name="lit-tag" label="Literal tag:"/>
+        <prop name="lit" label="Literal:"/>
+    </node>
+    <!--node name="action" rep="box" color="#5544ff" label="Action">
+        <child name="call-macro" con="nested" />
+        <child name="out" con="nested" />
+        <child name="let" con="nested" />
+    </node>
+    <node name="call-macro" rep="box" color="#33eeaa" label="Call macro">
+        <prop name="n" label="Name:" />
+        <child name="with-param" con="nested" />
+    </node>
+    <node name="with-param" label="Parameter" rep="box" color="#aabb77">
+        <prop name="pos" label="Position:" />
+    </node>
+    <node name="out" label="Output" color="#339966" rep="box">
+        <child name="chunk" con="nested" />
+        <child name="lu" con="nested" />
+        <child name="b" con="nested" />
+    </node>
+    <node name="chunk" label="Chunk" rep="box" color="#7711aa">
+        <prop name="name" label="Name:" />
+        <prop name="case" label="Case:" />
+        <child name="tags" con="nested" />
+        <child name="lu" con="nested" />
+    </node>
+    <node name="tags" label="Tags" rep="box" color="#998866">
+        <child name="tag" con="nested" />
+    </node>
+    <node name="tag" label="Tag" rep="box" color="#77aadd">
+        <child name="lit-tag" con="nested" />
+    </node>
+    <node name="lit-tag" label="Literal tag" rep="box" color="#22aa77" />
+    <node name="lu" label="Lexical unit:" rep="box" color="#22aa99">
+        <child name="lit" con="nested" />
+        <child name="lit-tag" con="nested" />
+        <child name="clip" con="nested" />
+        <child name="b" con="nested" />
+    </node>
+    <node name="lit" label="Literal" rep="box" color="#aadd99">
+        <prop name="v" label="Value:" />
+    </node>
+    <node name="lit-tag" label="Literal tag" rep="box" color="#aadd99">
+        <prop name="v" label="Value:" />
+    </node>
+    <node name="clip" label="Clip" rep="box" color="#dd9922">
+        <prop name="pos" label="Position:" />
+        <prop name="side" label="Side:" list="side" type="selection" />
+        <prop name="part" label="Part:" />
+    </node>
+    <node name="b" label="Blank" rep="box" color="#ddccdd" />
+    <node name="let" label="Assign" rep="box" color="#aaaa88">
+        <child name="lit" con="nested" />
+        <child name="lit-tag" con="nested" />
+        <child name="var" con="nested" />
+    </node>
+    <node name="var" label="Variable" rep="box" color="#ee4422">
+        <prop name="n" label="Name:" />
+    </node-->
+</schema>
+ 

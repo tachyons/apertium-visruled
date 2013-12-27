@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Apertium Visual Rule Editor
+Categories=Development;Translation
+Exec=/usr/local/bin/apertium-visruled
+Icon=/usr/local/share/icons/apertium-visruled.png

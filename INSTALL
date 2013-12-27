@@ -1,0 +1,34 @@
+Linux
+=====
+
+Download the Qt 4 development kit (more than likely that your distro provides
+packages). Visruled is *not* compatible with Qt 5.
+
+In a terminal, navigate to the source directory and type:
+$ qmake
+$ make
+$ sudo make install
+
+NOTE: On Linux, the visual rule editor must be installed to run properly!
+
+Windows
+=======
+
+Download the Qt 4 development kit (http://qt-project.org). Visruled is *not*
+compatible with Qt 5.
+
+Setting up the build enviroment on Windows is much less straightforward
+compared to Linux; I advise that you download Qt Creator as well, which will
+take care of PATH and such annoyances.
+
+Once you have Creator, open apertium-visruled.pro. You can compile and run the
+application with the big green "Run" button.
+
+NOTE: On Windows, the visual rule editor must be run from the build directory
+to work properly! If you're not sure what that means, just stick to Creator's
+"Run" button; that will work.
+
+OSX
+===
+
+The Linux way probably works, but it's untested. Feedback elcome.
